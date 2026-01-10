@@ -52,6 +52,27 @@ html {
     }
 }
 
+section {
+    padding: 5rem 10%;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    border: $border;
+    background: $light-green;
+    color: $green;
+    cursor: pointer;
+    text-transform: capitalize;
+
+    &:hover {
+        background: $green;
+        color: $white;
+    }
+}
+
 .header {
     position: sticky;
     top:0; left:0; right:0;
@@ -115,7 +136,7 @@ html {
 
 .account-form {
     position: fixed;
-    top: 0; right: 0;
+    top: 0; right: -105%;
     width: 35rem;
     background: $white;
     display: flex;
@@ -123,9 +144,14 @@ html {
     gap: 2rem;
     justify-content: center;
     height: 100%;
-    box-shadow: 0 0 0 100vw rgba(0,0,0,.8);
     z-index: 1200;
     padding: 2rem;
+    text-align: center;
+
+    &.active {
+        box-shadow: 0 0 0 100vw rgba(0,0,0,.8);
+        right: 0;
+    }
 
     #close-form {
         position: absolute;
@@ -136,6 +162,66 @@ html {
 
         &:hover {
             transform: rotate(90deg);
+        }
+    }
+
+    form {
+        border: $border;
+        padding: 2rem;
+        display: none;
+
+        &.active {
+            display: block;
+        }
+
+        h3 {
+            @include titleText(2.5rem);
+            margin-bottom: .5rem;
+            text-transform: uppercase;
+        }
+
+        .box {
+            width: 100%;
+            padding: 1.2rem 1.4rem;
+            border: $border;
+            font-size: 1.6rem;
+            margin: .7rem 0;
+        }
+
+        .flex {
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            label {
+                font-size: 1.5rem;
+                color: $light-color;
+                cursor: pointer;
+            }
+    
+            a {
+                font-size: 1.5rem;
+                color: $light-color;
+                margin-left: auto;
+    
+                &:hover {
+                    text-decoration: underline;
+                    color: $green;
+                }
+            }
+        }
+
+        .btn {
+            width: 100%;
+        }
+    }
+
+    .buttons .btn {
+        margin: 0.5rem;
+
+        &.active {
+            background: $green;
+            color: $white;
         }
     }
 }
@@ -159,7 +245,82 @@ html {
 
 
 
+.footer {
+    background: $light-green;
 
+    .box-container {
+        @include grid(25rem);
+
+        .box {
+
+            h3 {
+                @include titleText(2.2rem);
+                padding: 1rem 0;
+
+                i {
+                    color: $green;
+                }
+            }
+
+            .share {
+                margin-top: 1rem;
+
+                a {
+                    height: 4.5rem;
+                    width: 4.5rem;
+                    line-height: 4.5rem;
+                    font-size: 1.7rem;
+                    background-color: $green;
+                    color: $white;
+                    margin-right: .3rem;
+                    text-align: center;
+                    border-radius: 50%;
+
+                    &:hover {
+                        background: $black;
+                    }
+                }
+            }
+
+            .link {
+                @include graphText(1.7rem);
+                padding: .5rem 0;
+                display: block;
+
+                &:hover {
+                    color: $green;
+                    text-decoration: underline;
+                }
+            }
+
+            p {
+                @include graphText(1.5rem);
+                padding: 1rem 0;
+            }
+
+            .email {
+                width: 100%;
+                padding: 1.2rem 1.4rem;
+                font-size: 1.6rem;
+                border: $border;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    .credit {
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 3rem;
+        border-top: $border;
+        @include titleText(2rem);
+
+        span {
+            color: $green;
+            font-weight: bold;
+        }
+    }
+}
 
 
 // media queies
@@ -167,6 +328,10 @@ html {
 @media (max-width: 1200px) {
     .header {
         padding: 2rem 5%;
+    }
+
+    section {
+        padding: 3rem 5%;
     }
 }
 
@@ -177,6 +342,10 @@ html {
 
     .header {
         padding: 2rem;
+    }
+
+    section {
+        padding: 3rem 2rem;
     }
 }
 
